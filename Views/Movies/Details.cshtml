@@ -1,0 +1,51 @@
+﻿@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = Html.DisplayFor(model => model.Title);
+}
+
+    
+
+<div class="row">
+    <div class="col-md-8">
+
+        <h1>@Html.DisplayFor(model => model.Title)</h1>
+
+        <h2>Movie Details</h2>
+        <hr />
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="text-nowrap"> @Html.DisplayNameFor(model => model.ReleaseDate)</td>
+                    <td> @Html.DisplayFor(model => model.ReleaseDate)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Genre)</td>
+                    <td>@Html.DisplayFor(model => model.Genre)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Price)</td>
+                    <td>@Html.DisplayFor(model => model.Price)</td>
+                </tr>
+                <tr>
+                    <td>Starring</td>
+                    <td><p id="actors"></p></td>
+                </tr>
+                <tr>
+                    <td>Plot</td>
+                    <td><p id="plot"></p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div id="poster-container" data-imdb="@Html.DisplayFor(model => model.IMDB_ID)">
+            <img id="poster" class="img-fluid poster"/>
+        </div>
+    </div> 
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+    <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
+</div>
